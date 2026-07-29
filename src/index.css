@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0a0a;
+  --color-coal: #161613;
+  --color-bone: #ece9e0;
+  --color-acid: #c6f135;
+
+  --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-serifit: "Instrument Serif", Georgia, serif;
+  --font-sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background-color: var(--color-ink);
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-acid);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a24;
+  border: 2px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c6f135;
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-acid);
+  outline-offset: 3px;
+}
+
+/* ---------- keyframes ---------- */
+@keyframes pf-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pf-marquee-rev {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes pf-scrollcue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  45% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+@keyframes pf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pf-breathe {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.07);
+  }
+}
+
+.animate-pf-marquee {
+  animation: pf-marquee var(--pf-duration, 28s) linear infinite;
+}
+.animate-pf-marquee-rev {
+  animation: pf-marquee-rev var(--pf-duration, 28s) linear infinite;
+}
+.animate-pf-scrollcue {
+  animation: pf-scrollcue 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+.animate-pf-spin {
+  animation: pf-spin 16s linear infinite;
+}
+.animate-pf-breathe {
+  animation: pf-breathe 14s ease-in-out infinite alternate;
+}
+
+.pf-pause-hover:hover .animate-pf-marquee,
+.pf-pause-hover:hover .animate-pf-marquee-rev {
+  animation-play-state: paused;
+}
+
+/* ---------- editorial helpers ---------- */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(236 233 224 / 0.6);
+}
+.text-outline-faint {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(236 233 224 / 0.16);
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pf-marquee,
+  .animate-pf-marquee-rev,
+  .animate-pf-scrollcue,
+  .animate-pf-spin,
+  .animate-pf-breathe {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
