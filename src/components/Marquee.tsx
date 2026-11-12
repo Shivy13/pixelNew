@@ -31,11 +31,11 @@ export default function Marquee({
   pausable = false,
 }: MarqueeProps) {
   const row = (hidden: boolean) => (
-    <div aria-hidden={hidden} className="flex shrink-0 items-center">
+    <div aria-hidden={hidden} className="flex shrink-0 items-stretch">
       {items.map((item, i) => (
-        <span key={i} className={cn("flex items-center", itemClassName)}>
+        <span key={i} className={cn("flex items-stretch whitespace-normal", itemClassName)}>
           {item}
-          {separator && <Spark className="mx-5 h-[0.55em] w-[0.55em] shrink-0 text-acid md:mx-8" />}
+          {separator && <Spark className="mx-5 h-[0.55em] w-[0.55em] shrink-0 self-center text-acid md:mx-8" />}
         </span>
       ))}
     </div>

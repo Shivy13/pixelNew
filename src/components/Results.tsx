@@ -131,23 +131,26 @@ export default function Results() {
             pausable
             duration={52}
             separator={false}
-            itemClassName="mx-3"
+            itemClassName="mx-3 items-stretch"
             items={TESTIMONIALS.map((t) => (
               <figure
                 key={t.name}
-                className="flex min-h-[250px] w-[320px] shrink-0 flex-col justify-between border border-bone/12 bg-coal/80 p-6 transition-colors duration-500 hover:border-acid/50 md:w-[430px] md:p-8"
+                className="flex w-[280px] shrink-0 flex-col border border-bone/12 bg-coal/80 p-5 transition-colors duration-500 hover:border-acid/50 sm:w-[340px] sm:p-6 lg:w-[380px] lg:p-7"
               >
-                <div>
-                  <Spark className="h-4 w-4 text-acid" />
-                  <blockquote className="mt-5 font-serifit text-xl italic leading-snug text-bone/90 md:text-2xl">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-                </div>
-                <figcaption className="mt-7">
+                {/* icon */}
+                <Spark className="mb-4 h-3.5 w-3.5 shrink-0 text-acid" />
+
+                {/* quote — 4-line clamp, never bleeds the card */}
+                <blockquote className="flex-1 font-serifit text-base italic leading-snug text-bone/90 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:5] overflow-hidden lg:text-lg">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+
+                {/* attribution — always pinned at the bottom */}
+                <figcaption className="mt-5 shrink-0 border-t border-bone/10 pt-4">
                   <p className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-bone">
                     {t.name}
                   </p>
-                  <p className="mt-1 font-sans text-[10px] uppercase tracking-[0.18em] text-bone/40">
+                  <p className="mt-1.5 font-sans text-[10px] uppercase tracking-[0.18em] text-bone/40">
                     {t.role}
                   </p>
                 </figcaption>

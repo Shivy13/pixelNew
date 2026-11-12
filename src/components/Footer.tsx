@@ -220,7 +220,7 @@ export default function Footer() {
       </div>
 
       {/* watermark */}
-      <div className="select-none overflow-hidden px-2" aria-hidden="true">
+      <div className="select-none overflow-hidden border-t border-bone/15 px-2 pt-10" aria-hidden="true">
         <p className="text-outline-faint whitespace-nowrap text-center font-display text-[19vw] uppercase leading-[0.85]">
           PixelForge<span className="align-super text-[0.25em]">®</span>
         </p>

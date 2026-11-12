@@ -3,8 +3,8 @@
 @theme {
   --color-ink: #0a0a0a;
   --color-coal: #161613;
-  --color-bone: #ece9e0;
-  --color-acid: #c6f135;
+  --color-bone: #f0eeea;
+  --color-acid: #C6F135;
 
   --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
   --font-serifit: "Instrument Serif", Georgia, serif;
@@ -39,7 +39,7 @@ body {
   border: 2px solid #0a0a0a;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c6f135;
+  background: #C6F135;
 }
 
 :focus-visible {
